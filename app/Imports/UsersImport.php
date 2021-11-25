@@ -8,9 +8,14 @@ use Maatwebsite\Excel\Concerns\ToModel;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Illuminate\Support\Facades\DB;
-class UsersImport implements ToCollection
+use Maatwebsite\Excel\Concerns\WithStartRow;
+class UsersImport implements ToCollection,WithStartRow
 {
 
+    public function startRow(): int
+    {
+        return 2;
+    }
     public function collection(Collection $rows)
     {
         foreach ($rows as $row)
