@@ -23,16 +23,14 @@ class UsersImport implements ToCollection,WithStartRow
              DB::table('elements')
                  ->where('id', $row[0])
              ->update([
-                 'name' => $row[1],
-                'price' => $row[2],
+                'price' => $row[2]
             ]);
            DB::table('views')
                ->where('id', $row[3])
                ->update([
                 'price_half'=> $row[5],
-                'price_full'=> $row[6],
-                'name'=> $row[4],
+                'price_full'=> $row[6]
             ]);
-                   }
+        }
     }
 }
