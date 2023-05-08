@@ -27,6 +27,7 @@ class ElementsExport implements FromCollection,WithStrictNullComparison,WithHead
             ->join('elements_views_match', 'elements.id', '=', 'elements_views_match.elements_id')
             ->join('views', 'views.id', '=', 'elements_views_match.views_id')
             ->select('elements.id','elements.name', 'elements.price', 'views.id AS VI','views.name AS VN',  'views.price_half', 'views.price_full')
+            ->where('active','=', 1)
             ->get();
 
     }
